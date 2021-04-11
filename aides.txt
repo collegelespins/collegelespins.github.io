@@ -1,4 +1,4 @@
-Magnifique mode d'emploi : 
+Magnifique mode d'emploi DENO : 
 
 https://github.com/AstralisSomnium/PowerShell-No-Library-Just-Functions
 ==========================================================================
