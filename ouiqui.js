@@ -136,35 +136,6 @@ class DBRecorder {
     }
 }
 
-function testdatabase() {
-    class Book {
-        /**
-         * Une petite classe toute simple pour tester la sauvegarde en navigateur...
-         * @param id identifiant en 3 lettres
-         * @param name titre du livre
-         * @param author nom de l'auteur
-         */
-        constructor(id, name, author) {
-            this.id = id;
-            this.name = name;
-            this.author = author;
-        }
-    }
-    let biblio = new DBRecorder("Bibliotheque", "GrandsEcrivains");
-    // biblio.clear();
-    biblio.put(new Book("Mis", "Les Misérables", "Victor Hugo"));
-    biblio.put(new Book("Per", "Le Père Goriot", "Honoré de Balzac"));
-    biblio.put(new Book("PereGoriot", "Le Père Goriot", "Honoré de Balzac"));
-    biblio.put(new Book("Gue", "La guerre des Gaules", "Jules César"));
-    biblio.put(new Book("Ccp", "Contes de la Mère l'Oye", "Charles Perrault"));
-    biblio.delete("PereGoriot");
-    biblio.load("Per").then((o) => console.log("Le Père Goriot est de", o.author));
-    biblio.getAll().then((listing) => {
-        let books = listing;
-        books.forEach(b => console.log(b.id, ":", b.name, "a été écrit par", b.author));
-    });
-}
-
 class Select {
     constructor() {
         this.s = window.getSelection();
@@ -219,6 +190,7 @@ class Speech {
         });
     }
 }
+
 class Loader {
     constructor(url) {
         this.url = url;
@@ -486,9 +458,7 @@ class Stylable {
     set borderWidth(value) { this.updateStyle(8, value); }
     get borderRadius() { return this.styl[9]; }
     set borderRadius(value) { this.updateStyle(9, value); }
-    get selectable() {
-        return this.css.userSelect !== "none";
-    }
+    get selectable() { return this.css.userSelect !== "none"; }
     set selectable(value) {
         let prefixes = ["-webkit-", "-khtml-", "-moz-", "-o-", ""];
         prefixes.forEach(p => this.setCss(p + "user-select", value ? "text" : "none"));
@@ -889,17 +859,17 @@ class Page extends Div {
         new Icon(this, "Copy", dx + (ic * 4), dy, "Copier", (i) => { AddTag(this, "copy"); paste(0); });
         new Icon(this, "Paste", dx + (ic * 5), dy, "Coller", (i) => { AddTag(this, "paste"); paste(1); });
         // new Icon(this, "Delete", dx + (ic * 5), dy, "Effacer", () => { AddTag(this, "delete") });
-        new Icon(this, "EditUndo", dx + (ic * 6), dy, "Annuler", () => { AddTag(this, "undo"); });
-        new Icon(this, "EditRedo", dx + (ic * 7), dy, "Rétablir", () => { AddTag(this, "redo"); });
+        new Icon(this, "Editundo", dx + (ic * 6), dy, "Annuler", () => { AddTag(this, "undo"); });
+        new Icon(this, "Editredo", dx + (ic * 7), dy, "Rétablir", () => { AddTag(this, "redo"); });
         new Icon(this, "Align_left", dx + (ic * 8), dy, "Aligner à gauche", () => { AddTag(this, "justifyLeft"); });
         new Icon(this, "Align_center", dx + (ic * 9), dy, "Centrer", () => { AddTag(this, "justifyCenter"); });
         new Icon(this, "Align_right", dx + (ic * 10), dy, "Aligner à droite", () => { AddTag(this, "justifyRight"); });
-        new Icon(this, "Align_Justify", dx + (ic * 11), dy, "Justifier", () => { AddTag(this, "justifyFull"); });
+        new Icon(this, "Align_justify", dx + (ic * 11), dy, "Justifier", () => { AddTag(this, "justifyFull"); });
         new Icon(this, "Listnumbered", dx + (ic * 12), dy, "Créer une liste numérotée", () => { AddTag(this, "insertOrderedList"); });
         new Icon(this, "Listbullets", dx + (ic * 13), dy, "Créer une liste à puce", () => { AddTag(this, "insertUnorderedList"); });
         new Icon(this, "Indent", dx + (ic * 14), dy, "Indenter", () => { AddTag(this, "indent"); });
         new Icon(this, "Unindent", dx + (ic * 15), dy, "Extruder", () => { AddTag(this, "outdent"); });
-        new Icon(this, "checkspelling", dx + (ic * 16), dy, "Vérification orthographique", () => this.toggleCheckSpell());
+        new Icon(this, "Checkspelling", dx + (ic * 16), dy, "Vérification orthographique", () => this.toggleCheckSpell());
         new Icon(this, "Up", dx + (ic * 0), dy2, "Augmenter la taille", () => { AddTag(this, "increaseFontSize"); });
         new Icon(this, "Down", dx + (ic * 1), dy2, "Diminuer la taille", () => { AddTag(this, "decreaseFontSize"); });
         new Icon(this, "Strikethrough", dx + (ic * 2), dy2, "Barré", () => { AddTag(this, "strikethrough"); });
@@ -907,9 +877,9 @@ class Page extends Div {
         new Icon(this, "Subscript", dx + (ic * 4), dy2, "Indice", () => { AddTag(this, "subscript"); });
         new Icon(this, "Link", dx + (ic * 5), dy2, "Insérer un lien hypertexte", () => AddParTag(this, "createLink", "Insérer un lien hypertexte", "Url du lien"));
         new Icon(this, "InsertPicture", dx + (ic * 6), dy2, "Insérer une image", () => AddParTag(this, "insertImage", "Insérer une image", "Url de l'image"));
-        new Icon(this, "AddTable", dx + (ic * 7), dy2, "Insérer un tableau", () => AddTable(this, this.width));
-        new Icon(this, "play", dx + (ic * 8), dy2, "Insérer une vidéo (YouTube)", () => AddYoutube(this, this.width));
-        new Icon(this, "flv", dx + (ic * 9), dy2, "Insérer une animation swf", () => AddSwf(this));
+        new Icon(this, "Addtable", dx + (ic * 7), dy2, "Insérer un tableau", () => AddTable(this, this.width));
+        new Icon(this, "Play", dx + (ic * 8), dy2, "Insérer une vidéo (YouTube)", () => AddYoutube(this, this.width));
+        new Icon(this, "Flv", dx + (ic * 9), dy2, "Insérer une animation swf", () => AddSwf(this));
         new Choice(this, "Titre", dx + (ic * 10) - 1, dy2 - 1, ic * 3, "Gros titre", ["h1", "h2", "h3", "h4", "h5", "h6"], (c) => { AddFormat(this, c.value); });
         new FontChoice(this, "Police", dx + (ic * 13) - 1, dy2 - 1, ic * 4, "Nom de la police", (c) => { AddDoubleTag(this, "fontName", c.value); });
         new Choice(this, "Taille", dx + (ic * 17) - 1, dy2 - 1, ic * 3, "Taille des caractères", ["1", "2", "3", "4", "5", "6", "7"], (c) => { AddDoubleTag(this, "fontSize", c.value); });
