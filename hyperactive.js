@@ -2618,15 +2618,15 @@ class Champ extends Visuel {
       * Affiche un texte dans la zone de titre pendant 2 secondes
       * @param textes textes à joindre par un espace
       */
-     function titrer(...textes) {
+    function titrer(...textes) {
          if (delaiTitrage)
-             clearTimeout(delaiTitrage);
-         etiTitre.texte = textes.join(" ");
-         etiTitre.coulFond = "#F96";
-         delaiTitrage = setTimeout(() => {
-             etiTitre.texte = sujet + " " + marque;
-             etiTitre.coulFond = "transparent";
-         }, dureeTitrage);
-     }
+            clearTimeout(delaiTitrage);
+        etiTitre.texte = textes.join(" ");
+        etiTitre.coulFond = "#F96";
+        delaiTitrage = setTimeout(() => {
+            etiTitre.texte = sujet + " " + marque;
+            etiTitre.coulFond = "transparent";
+        }, dureeTitrage);
+    }
  }
 
