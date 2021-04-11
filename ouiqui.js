@@ -859,8 +859,8 @@ class Page extends Div {
         new Icon(this, "Copy", dx + (ic * 4), dy, "Copier", (i) => { AddTag(this, "copy"); paste(0); });
         new Icon(this, "Paste", dx + (ic * 5), dy, "Coller", (i) => { AddTag(this, "paste"); paste(1); });
         // new Icon(this, "Delete", dx + (ic * 5), dy, "Effacer", () => { AddTag(this, "delete") });
-        new Icon(this, "EditUndo", dx + (ic * 6), dy, "Annuler", () => { AddTag(this, "undo"); });
-        new Icon(this, "EditRedo", dx + (ic * 7), dy, "Rétablir", () => { AddTag(this, "redo"); });
+        new Icon(this, "Editundo", dx + (ic * 6), dy, "Annuler", () => { AddTag(this, "undo"); });
+        new Icon(this, "Editredo", dx + (ic * 7), dy, "Rétablir", () => { AddTag(this, "redo"); });
         new Icon(this, "Align_left", dx + (ic * 8), dy, "Aligner à gauche", () => { AddTag(this, "justifyLeft"); });
         new Icon(this, "Align_center", dx + (ic * 9), dy, "Centrer", () => { AddTag(this, "justifyCenter"); });
         new Icon(this, "Align_right", dx + (ic * 10), dy, "Aligner à droite", () => { AddTag(this, "justifyRight"); });
