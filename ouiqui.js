@@ -876,7 +876,7 @@ class Page extends Div {
         new Icon(this, "Superscript", dx + (ic * 3), dy2, "Exposant", () => { AddTag(this, "superscript"); });
         new Icon(this, "Subscript", dx + (ic * 4), dy2, "Indice", () => { AddTag(this, "subscript"); });
         new Icon(this, "Link", dx + (ic * 5), dy2, "Insérer un lien hypertexte", () => AddParTag(this, "createLink", "Insérer un lien hypertexte", "Url du lien"));
-        new Icon(this, "InsertPicture", dx + (ic * 6), dy2, "Insérer une image", () => AddParTag(this, "insertImage", "Insérer une image", "Url de l'image"));
+        new Icon(this, "Insertpicture", dx + (ic * 6), dy2, "Insérer une image", () => AddParTag(this, "insertImage", "Insérer une image", "Url de l'image"));
         new Icon(this, "Addtable", dx + (ic * 7), dy2, "Insérer un tableau", () => AddTable(this, this.width));
         new Icon(this, "Play", dx + (ic * 8), dy2, "Insérer une vidéo (YouTube)", () => AddYoutube(this, this.width));
         new Icon(this, "Flv", dx + (ic * 9), dy2, "Insérer une animation swf", () => AddSwf(this));
