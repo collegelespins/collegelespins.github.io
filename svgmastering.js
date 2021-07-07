@@ -24,7 +24,7 @@ class El {
     }
     /**
      * Mise à jour sur modification : implémenter chez les enfants
-     * en veillant à ne pas créer de boucle
+     * en veillant à ne pas créer de boucle infinie
      */
     update () {
     }
