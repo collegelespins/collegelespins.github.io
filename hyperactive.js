@@ -1739,7 +1739,6 @@ class Champ extends Visuel {
          this.creerProp("index", 0);
          this.cadrer(x, y, lg, 2 + (this.nbLignes * 20), 0);
          this.css.overflow = "hidden";
-         this.css.overflowY = "scroll";
          this.creerProp("action", (n) => { });
          for (let i = 0; i < item.length; i++) {
              this.ajouterLigne(i, item[i]);
