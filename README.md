@@ -1,3 +1,3 @@
-# collegelespins.github.io
+# SECOURS DE FRANCAIS
 
-Afficher la page de sélection à l'adresse suivante : https://collegelespins.github.io/
+Afficher les secours à l'adresse suivante : https://secoursdefrancais.github.io/
