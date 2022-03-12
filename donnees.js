@@ -1,110 +1,128 @@
-﻿class DocExterne {
-    constructor(public type: string, public adresse: string, public description: string) {
+"use strict";
+class DocExterne {
+    constructor(type, adresse, description) {
+        this.type = type;
+        this.adresse = adresse;
+        this.description = description;
     }
     afficher() {
-
     }
 }
-
 class Site extends DocExterne {
-    constructor(adresse: string, public description: string) {
+    constructor(adresse, description) {
         super("Page web", adresse, description);
+        this.description = description;
     }
 }
-
 class Film extends DocExterne {
-    constructor(adresse: string, public description: string) {
+    constructor(adresse, description) {
         super("Fichier vidéo", adresse, description);
+        this.description = description;
     }
 }
-
 class Illustration extends DocExterne {
-    constructor(adresse: string, public description: string) {
+    constructor(adresse, description) {
         super("Fichier image", adresse, description);
+        this.description = description;
     }
 }
-
 class Son extends DocExterne {
-    constructor(adresse: string, public description: string) {
+    constructor(adresse, description) {
         super("Fichier sonore", adresse, description);
+        this.description = description;
     }
 }
-
 class DocInterne {
-    externes: DocExterne[] = [];
-    constructor(public type: string, public nom: string) {
-
+    constructor(type, nom) {
+        this.type = type;
+        this.nom = nom;
+        this.externes = [];
     }
     afficher() {
-
     }
 }
-
 class FigureDeStyle extends DocInterne {
-    exemples: string[] = [];
-    constructor(nom: string, public type: string, public definition: string = "", ...exemples: string[]) {
+    constructor(nom, type, definition = "", ...exemples) {
         super("Figure de style", nom);
+        this.type = type;
+        this.definition = definition;
+        this.exemples = [];
         this.exemples = exemples;
     }
     get titre() {
         return `${this.nom} (<i>figure ${this.type}</i>)`;
     }
 }
-
 class Auteur extends DocInterne {
-    constructor(nom: string, public naiss: Date, public deces: Date, public plume: string, public bio = "", public vraiNom = "") {
+    constructor(nom, naiss, deces, plume, bio = "", vraiNom = "") {
         super("Auteur", nom);
+        this.naiss = naiss;
+        this.deces = deces;
+        this.plume = plume;
+        this.bio = bio;
+        this.vraiNom = vraiNom;
     }
     get titre() {
         return `${this.plume} (${this.naiss.getFullYear()}-${this.deces.getFullYear()})`;
     }
 }
-
 class Cours extends DocInterne {
-    constructor(nom: string, public description: string, public contenu = "") {
+    constructor(nom, description, contenu = "") {
         super("Cours", nom);
+        this.description = description;
+        this.contenu = contenu;
     }
     get titre() {
         return `${this.nom}<br><i>${this.description}</i>`;
     }
 }
-
 class Oeuvre extends DocInterne {
-    constructor(public titre: string, public auteur: Auteur, public publication: Date, public resume: string = "") {
+    constructor(titre, auteur, publication, resume = "") {
         super("Œuvre", titre);
+        this.titre = titre;
+        this.auteur = auteur;
+        this.publication = publication;
+        this.resume = resume;
     }
 }
-
 class Texte extends DocInterne {
-    constructor(public titre: string, public genre: Genre, public auteur: Auteur, public Epoque: Epoque, public texte: string) {
+    constructor(titre, genre, auteur, Epoque, texte) {
         super("Texte à étudier", titre);
+        this.titre = titre;
+        this.genre = genre;
+        this.auteur = auteur;
+        this.Epoque = Epoque;
+        this.texte = texte;
     }
 }
-
 class Epoque extends DocInterne {
-    auteurs: Auteur[] = [];
-    constructor(public titre: string, public definition: string, public debut: Date, public fin: Date) {
+    constructor(titre, definition, debut, fin) {
         super("Époque littéraire", titre);
+        this.titre = titre;
+        this.definition = definition;
+        this.debut = debut;
+        this.fin = fin;
+        this.auteurs = [];
     }
 }
-
 class Genre extends DocInterne {
-    auteurs: Auteur[] = [];
-    exemples: string[] = [];
-    constructor(nom: string, public definition: string) {
+    constructor(nom, definition) {
         super("Genre littéraire", nom);
+        this.definition = definition;
+        this.auteurs = [];
+        this.exemples = [];
     }
 }
-
 class Mouvement extends DocInterne {
-    auteurs: Auteur[] = [];
-    exemples: string[] = [];
-    constructor(nom: string, public Epoque: Epoque, public definition: string) {
+    constructor(nom, Epoque, definition) {
         super("Mouvement littéraire", nom);
+        this.Epoque = Epoque;
+        this.definition = definition;
+        this.auteurs = [];
+        this.exemples = [];
     }
 }
-
-const cours: Cours[] = [
+const cours = [
     new Cours("Le niveau de langue", "Pourquoi et comment étudier le type de langage ?"),
     new Cours("L'étude du vocabulaire et du lexique", "Comment faire l'étude des mots ?"),
     new Cours("L'étude de la langue", "Temps des verbes, jeu des pronoms, adjectifs, type des phrases, ..."),
@@ -117,14 +135,13 @@ const cours: Cours[] = [
     new Cours("La focalisation, le point de vue", "Quelle est la position du narrateur dans le récit ?"),
     new Cours("La tonalité et la visée", "Comment comprendre ce texte ? Pourquoi a-t-il été écrit ?"),
     new Cours("Les champs lexicaux", "Pourquoi et comment relever les champs lexicaux ?"),
-    new Cours("Les figures de style", "Comment présenter l'étude des figures de style ?"),
+    new Cours("Les figures de style", "Comment étudier les figures de style ?"),
     new Cours("Le schéma narratif", "De la situation initiale à la situation finale"),
     new Cours("Le plan d'une argumentation", "Le thème, la thèse, les arguments, les exemples"),
 ];
-
-const auteurs: Auteur[] = [
+const auteurs = [
     /* nom, naissance, décès, complet, bio, vraiNom */
-   new Auteur("Bellay", new Date(1522, 4, 1), new Date(1560, 1, 0), "Joachim du Bellay"),
+    new Auteur("Bellay", new Date(1522, 4, 1), new Date(1560, 1, 0), "Joachim du Bellay"),
     new Auteur("Ronsard", new Date(1524, 8, 11), new Date(1585, 11, 27), "Pierre de Ronsard"),
     new Auteur("Fontaine", new Date(1621, 6, 8), new Date(1695, 3, 13), "Jean de la Fontaine", ""),
     new Auteur("Molière", new Date(1622, 15, 0), new Date(1873, 1, 17), "Molière", "", "Jean-Baptiste Poquelin"),
@@ -132,10 +149,10 @@ const auteurs: Auteur[] = [
     new Auteur("Montesquieu", new Date(1669, 0, 18), new Date(1755, 1, 10), "Montesquieu", "", "Charles Louis de Secondat de la Brède et de Montesquieu"),
     new Auteur("Voltaire", new Date(1694, 10, 21), new Date(1778, 4, 30), "Voltaire", "", "François-Marie Arouet"),
     new Auteur("Rousseau", new Date(1712, 5, 28), new Date(1778, 6, 2), "Jean-Jacques Rousseau", ""),
-    new Auteur("Diderot", new Date(1713, 9, 5), new Date(1784, 6, 31), "Denis Diderot", ""),    
-    new Auteur("Gouges", new Date(1748, 4, 7), new Date(1793, 10, 3), "Olympe de Gouges", "", "Marie Gouze, veuve Aubry"),    
+    new Auteur("Diderot", new Date(1713, 9, 5), new Date(1784, 6, 31), "Denis Diderot", ""),
+    new Auteur("Gouges", new Date(1748, 4, 7), new Date(1793, 10, 3), "Olympe de Gouges", "", "Marie Gouze, veuve Aubry"),
     new Auteur("Stendhal", new Date(1783, 0, 23), new Date(1842, 2, 23), "Stendhal", "", "Henri Bayle"),
-    new Auteur("Balzac", new Date(1799, 4, 20), new Date(1850, 7, 18), "Honoré de Balzac", ""), 
+    new Auteur("Balzac", new Date(1799, 4, 20), new Date(1850, 7, 18), "Honoré de Balzac", ""),
     new Auteur("Hugo", new Date(1802, 1, 26), new Date(1885, 4, 22), "Victor Hugo"),
     new Auteur("Sand", new Date(1804, 6, 1), new Date(1876, 5, 8), "George Sand", "", "Amantine Aurore Lucile Dupin de Francueil, baronne Dudevant"),
     new Auteur("Gautier", new Date(1811, 7, 30), new Date(1872, 9, 23), "Théophile Gautier", ""),
@@ -147,22 +164,18 @@ const auteurs: Auteur[] = [
     new Auteur("Rimbaud", new Date(1854, 9, 20), new Date(1891, 10, 10), "Arthur Rimbaud"),
     new Auteur("Barjavel", new Date(1911, 0, 24), new Date(1985, 10, 24), "René Barjavel", ""),
 ];
-
-const figures: FigureDeStyle[] = [
+const figures = [
     new FigureDeStyle("Comparaison", "d'analogie"),
     new FigureDeStyle("Métaphore", "d'analogie"),
     new FigureDeStyle("Personnification", "d'analogie"),
-
     new FigureDeStyle("Métonymie", "de substitution"),
     new FigureDeStyle("Périphrase", "de substitution"),
     new FigureDeStyle("Allégorie", "de substitution"),
     new FigureDeStyle("Synecdoque", "de substitution"),
-
     new FigureDeStyle("Antithèse", "d'opposition"),
     new FigureDeStyle("Oxymore", "d'opposition"),
     new FigureDeStyle("Chiasme", "d'opposition"),
     new FigureDeStyle("Antiphrase", "d'opposition"),
-
     new FigureDeStyle("Anaphore", "d'insistance"),
     new FigureDeStyle("Parallélisme", "d'insistance"),
     new FigureDeStyle("Répétition", "d'insistance"),
@@ -170,11 +183,9 @@ const figures: FigureDeStyle[] = [
     new FigureDeStyle("Hyperbole", "d'insistance"),
     new FigureDeStyle("Énumération", "d'insistance"),
     new FigureDeStyle("Pléonasme", "d'insistance"),
-
     new FigureDeStyle("Euphémisme", "d'atténuation"),
     new FigureDeStyle("Litote", "d'atténuation"),
     new FigureDeStyle("Ellipse", "d'atténuation"),
-
     /*
     https://louis-marchand.fr/2019/03/19/nouveau-guide-pratique-des-principales-figures-de-rhetorique/
     https://apprendre-reviser-memoriser.fr/carte-mentale-des-figures-de-style-college-3eme/
@@ -183,36 +194,18 @@ const figures: FigureDeStyle[] = [
     https://www.numero1-scolarite.com/wp-content/uploads/2021/09/Les-figures-dinsistance-et-dattenuation.pdf
     */
 ];
-
-const oeuvres: Oeuvre[] = [
-
-];
-
-const textes: Texte[] = [
-
-];
-
-const epoques: Epoque[] = [
-
-];
-
-const genres: Genre[] = [
-
-];
-
-const mouvements: Mouvement[] = [
-
-];
-
+const oeuvres = [];
+const textes = [];
+const epoques = [];
+const genres = [];
+const mouvements = [];
 class Zone {
-    el: HTMLDivElement;
-    constructor(contenu: string) {
+    constructor(contenu) {
         this.el = document.createElement("div");
         this.el.innerHTML = contenu;
         document.body.insertBefore(this.el, document.getElementById("pied"));
     }
 }
-
 window.onload = () => {
     const titre = document.title;
     switch (titre) {
@@ -233,4 +226,5 @@ window.onload = () => {
         case "Programme": break;
         default: ;
     }
-}
+};
+//# sourceMappingURL=donnees.js.map
