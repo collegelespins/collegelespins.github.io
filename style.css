@@ -6,6 +6,9 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 11pt;
 }
+img {
+    vertical-align: middle;
+}
 h1 {
     color: blue;
     text-align: center;
@@ -17,30 +20,30 @@ h2 {
 h5 {
     text-align: center;
 }
-.key {
+.key { /* extension quelconque */
     font-weight: bold;
     color: brown;
 }
-.log { /* logiciel */
+.log { /* nom d'un logiciel */
     color: blue;
     font-weight:bold;
     font-variant: small-caps;
 }
-.auteur {
+.auteur { /* Nom d'auteur en gras, petites majuscules */
     font-variant: small-caps;
     font-weight: bold;
 }
-.oeuvre {
+.oeuvre { /* Titre d'oeuvre, en italiques */
     font-style: italic;
 }
-.texte {
+.texte { /* extrait de texte - largeur fixe, fond blanc, bordure */
     background-color: white;
     width: 850px;
     padding: 2px;
     border-bottom: 3px solid saddlebrown;
     border-right: 1px solid saddlebrown;
 }
-.didas {
+.didas { /* didascalies (théâtre) */
     font-style: italic;
     font-size: small;
     color: brown;
