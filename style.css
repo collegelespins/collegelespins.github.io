@@ -4,6 +4,7 @@
     padding-left: 5px;
     border-left: 1px solid red;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 11pt;
 }
 h1 {
     color: blue;
@@ -31,4 +32,16 @@ h5 {
 }
 .oeuvre {
     font-style: italic;
+}
+.texte {
+    background-color: white;
+    width: 850px;
+    padding: 2px;
+    border-bottom: 3px solid saddlebrown;
+    border-right: 1px solid saddlebrown;
+}
+.didas {
+    font-style: italic;
+    font-size: small;
+    color: brown;
 }
