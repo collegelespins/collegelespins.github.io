@@ -20,6 +20,11 @@ h2 {
 h5 {
     text-align: center;
 }
+.para {
+    font-size:larger; 
+    font-weight:bold; 
+    color:red
+}
 .key { /* extension quelconque */
     font-weight: bold;
     color: brown;
