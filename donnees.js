@@ -91,11 +91,10 @@ window.onload = () => {
             new Zone("<ol>" + auteurs.map(a => "<li>" + a.titre + "</li>").join("")) + "</ol>";
             break;
         case "cours":
-            let txt = `<h4>Les notions générales</h4>
-            <ol>${cours.map(c => "<li>" + c.titre + "</li>").join("")}</ol>
-            <h4>Les figures de style</h4>
-            <ol>${figures.map(f => "<li>" + f.info + "</li>").join("")}</ol>`;
-            new Zone(txt);
+            new Zone(`<h4>Les cours (notions générales)</h4><ol>${cours.map(c => "<li>" + c.titre + "</li>").join("")}</ol>`);
+            break;
+        case "figures":
+            new Zone(`<h4>Les figures de style</h4><ol>${figures.map(f => "<li>" + f.info + "</li>").join("")}</ol>`);
             break;
         case "fiches": break;
         case "lectures": break;
