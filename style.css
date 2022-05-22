@@ -48,6 +48,11 @@ h5 {
     border-bottom: 3px solid saddlebrown;
     border-right: 1px solid saddlebrown;
 }
+.fig { /* nom d'une figure de style */
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
 .didas { /* didascalies (théâtre) */
     font-style: italic;
     font-size: small;
