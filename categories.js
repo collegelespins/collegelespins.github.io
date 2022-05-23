@@ -73,7 +73,7 @@ const XVIeme = new Epoque("XIXème siècle", "La Renaissance (XVIème siècle)",
 const XVIIeme = new Epoque("XIXème siècle", "L'Âge classique (XVIIème siècle)", new Date(1600, 0, 1), new Date(1699, 11, 31));
 const XVIIIeme = new Epoque("XIXème siècle", "Le Siècle des Lumières (XVIIIème siècle)", new Date(1700, 0, 1), new Date(1799, 11, 31));
 const XIXeme = new Epoque("XIXème siècle", "Le Romantisme - L'âge industriel", new Date(1800, 0, 1), new Date(1899, 11, 31));
-const XXeme = new Epoque("XIXème siècle", "L'époque Contemporaine (XXème-XXIème siècle)", new Date(1900, 0, 1), new Date(2022, 11, 31));
+const XXeme = new Epoque("XIXème siècle", "L'Époque Contemporaine (XXème-XXIème siècle)", new Date(1900, 0, 1), new Date(2022, 11, 31));
 const mouvements = [];
 const pleiade = new Mouvement("La Pléiade", XVIeme, "");
 const humanisme = new Mouvement("L'humanisme", XVIeme, "");
@@ -100,9 +100,9 @@ Quelques clés pour analyser un sonnet :
 - Un sonnet possède en général une "pointe" (ou "chute"). La "pointe" correspond au 14ème vers du poème qui doit être surprenant, fort, admirable, faire l'effet d'une révélation et éclairer le reste du poème.
 Le sonnet est apparu en Sicile au 13e siècle. La structure la plus répandue repose sur 4 rimes réparties ainsi: ABAB ABAB CDC DCD. Elle est adoptée rapidement par les poètes italiens, Dante Alighieri, Pétrarque et ses imitateurs. Toutes les tons et les styles sont possibles : lyrisme amoureux, satire, etc. Le sonnet devient rapidement un genre "européen" : il est en vogue dès le XVe siècle en Espagne, dès le XVIe en France puis en Angleterre, et au XVIIe en Allemagne.
 Malgré sa structure rigide, le sonnet a connu de nombreuses variations selon l'époque et le pays, tant dans la construction strophique que dans l'agencement des rimes : sonnet italien, sonnet pétrarquiste, sonnet marotique, sonnet français, sonnet shakespearien, et sonnets variés et nombreux au XIXe avec Baudelaire, Verlaine, Rimbaud, etc. Poème d'inspiration amoureuse à l'origine, le sonnet a été utilisé par les poètes pour exprimer leur vision du monde, de la nature et des hommes, leur conception de la poésie, ou de l'art en général, et la condition du poète.`, [
-    new Site("http://www.laits.utexas.edu/bizer/popups/def_sonnet.html", "Site reproduit"),
-    new Site("https://tete-en-lettres.com/le-sonnet-definition-et-analyse/", "Définition lycée"),
-    new Site("https://www.alloprof.qc.ca/fr/eleves/bv/francais/le-sonnet-f1085", "Définition simple"),
+    new Site("http://www.laits.utexas.edu/bizer/popups/def_sonnet.html", "Cours sur le sonnet reproduite ici"),
+    new Site("https://tete-en-lettres.com/le-sonnet-definition-et-analyse/", "Définition du sonnet, niveau lycée"),
+    new Site("https://www.alloprof.qc.ca/fr/eleves/bv/francais/le-sonnet-f1085", "Définition simple du sonnet"),
     new Site("https://journals.openedition.org/episteme/2577", "Cours de littérature sur la pointe du sonnet")
 ]);
 const ballade = new Genre("La ballade", ``, [new Site("", ""), new Site("", ""), new Site("", "")]);
@@ -158,22 +158,6 @@ const Maupassant = new Auteur("Maupassant", XIXeme, new Date(1850, 7, 5), new Da
 const Rimbaud = new Auteur("Rimbaud", XIXeme, new Date(1854, 9, 20), new Date(1891, 10, 10), "Arthur Rimbaud");
 const Barjavel = new Auteur("Barjavel", XXeme, new Date(1911, 0, 24), new Date(1985, 10, 24), "René Barjavel");
 const figures = [];
-class FigureDeStyle extends DocInterne {
-    constructor(nom, type, definition = "", ...exemples) {
-        super("Figure de style", nom);
-        this.type = type;
-        this.definition = definition;
-        this.exemples = [];
-        this.exemples = exemples;
-        figures.push(this);
-    }
-    get titre() {
-        return `<span class="fig">${this.nom}</span> (<i>figure ${this.type}</i>)`;
-    }
-    get info() {
-        return `<p>${this.titre}<br/>${this.definition}<br/><b>Exemples :</b><br><i>${this.exemples.join("<br>")}</i><hr></p>`;
-    }
-}
 new FigureDeStyle("Comparaison", "d'analogie", "montre le lien entre ce dont on parle et quelque chose qui sert à le décrire.", "belle comme un ange", "tel un lion magestueux", "aussi doux que de la soie");
 new FigureDeStyle("Métaphore", "d'analogie", "remplace ce dont on parle par une autre expression à prendre au sens figuré.", "le chemin de la réussite", "rendre les armes", "être au sommet", "déborder de joie");
 new FigureDeStyle("Personnification", "d'analogie", "attribue à la chose dont on parle des qualités, des capacités que l'on attribue normalement à une personne.", "la flamme dansait dans la cheminée", "le volcan cracha de la lave");

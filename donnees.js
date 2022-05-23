@@ -38,7 +38,26 @@ class DocInterne {
         this.nom = nom;
         this.externes = [];
     }
+    lier(externe) {
+        this.externes.push(externe);
+    }
     afficher() {
+    }
+}
+class FigureDeStyle extends DocInterne {
+    constructor(nom, type, definition = "", ...exemples) {
+        super("Figure de style", nom);
+        this.type = type;
+        this.definition = definition;
+        this.exemples = [];
+        this.exemples = exemples;
+        figures.push(this);
+    }
+    get titre() {
+        return `<div class="titre"><span class="fig">${this.nom}</span> (<i>figure ${this.type}</i>)</div>`;
+    }
+    get info() {
+        return `${this.titre}<div class="info">${this.definition}<br/><b>Exemples :</b><br><i>${this.exemples.join("<br>")}</i><hr></div>`;
     }
 }
 const cours = [];
@@ -47,10 +66,14 @@ class Cours extends DocInterne {
         super("Cours", nom);
         this.description = description;
         this.contenu = contenu;
+        this.externes = [];
         cours.push(this);
     }
     get titre() {
-        return `${this.nom}<br><i>${this.description}</i>`;
+        return `<div class="titre"><span class="cours">${this.nom}</span><br><i>${this.description}</i>`;
+    }
+    get info() {
+        return `${this.titre}<div class="cours">${this.contenu}</div>`;
     }
 }
 new Cours("Le niveau de langue", "Étudier la façon de s'exprimer");
@@ -86,20 +109,25 @@ class Zone {
 window.onload = () => {
     const titre = document.title;
     switch (titre.toLocaleLowerCase()) {
-        case "secours de français": break;
+        case "secours de français":
+            break;
         case "auteurs":
             new Zone("<ol>" + auteurs.map(a => "<li>" + a.titre + "</li>").join("")) + "</ol>";
             break;
         case "cours":
-            new Zone(`<h4>Les cours (notions générales)</h4><ol>${cours.map(c => "<li>" + c.titre + "</li>").join("")}</ol>`);
+            new Zone(`<h4>Les cours (notions générales)</h4><ol>${cours.map(c => "<li>" + c.info + "</li>").join("")}</ol>`);
             break;
         case "figures":
             new Zone(`<h4>Les figures de style</h4><ol>${figures.map(f => "<li>" + f.info + "</li>").join("")}</ol>`);
             break;
-        case "fiches": break;
-        case "lectures": break;
-        case "liens": break;
-        case "programme": break;
+        case "fiches":
+            break;
+        case "lectures":
+            break;
+        case "liens":
+            break;
+        case "programme":
+            break;
         default: ;
     }
 };
