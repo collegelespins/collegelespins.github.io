@@ -158,7 +158,7 @@ const Maupassant = new Auteur("Maupassant", XIXeme, new Date(1850, 7, 5), new Da
 const Rimbaud = new Auteur("Rimbaud", XIXeme, new Date(1854, 9, 20), new Date(1891, 10, 10), "Arthur Rimbaud");
 const Barjavel = new Auteur("Barjavel", XXeme, new Date(1911, 0, 24), new Date(1985, 10, 24), "René Barjavel");
 const figures = [];
-new FigureDeStyle("Comparaison", "d'analogie", "montre le lien entre ce dont on parle et quelque chose qui sert à le décrire.", "belle comme un ange", "tel un lion magestueux", "aussi doux que de la soie");
+new FigureDeStyle("Comparaison", "d'analogie", "montre le lien entre ce dont on parle et quelque chose qui sert à le décrire.", "belle comme un ange", "tel un lion majestueux", "aussi doux que de la soie");
 new FigureDeStyle("Métaphore", "d'analogie", "remplace ce dont on parle par une autre expression à prendre au sens figuré.", "le chemin de la réussite", "rendre les armes", "être au sommet", "déborder de joie");
 new FigureDeStyle("Personnification", "d'analogie", "attribue à la chose dont on parle des qualités, des capacités que l'on attribue normalement à une personne.", "la flamme dansait dans la cheminée", "le volcan cracha de la lave");
 new FigureDeStyle("Métonymie", "de substitution", "remplace ce dont on parle par une autre chose, liée logiquement avec cette chose.", "boire un verre", "manger toute son assiette", "aller au bureau", "la force armée");
