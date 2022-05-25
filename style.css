@@ -58,3 +58,11 @@ h5 {
     font-size: small;
     color: brown;
 }
+.question {
+    color:blue;
+    background-color: white;
+}
+.info {
+    color:red;
+    background-color: white;
+}
